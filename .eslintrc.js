@@ -1,0 +1,72 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:promise/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:array-func/recommended",
+    "plugin:you-dont-need-momentjs/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "prettier",
+    "plugin:clean-regex/recommended",
+    "plugin:you-dont-need-lodash-underscore/compatible",
+    "plugin:storybook/recommended",
+
+    // tests
+    "plugin:jest-dom/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:testing-library/react",
+  ],
+  overrides: [],
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+    project: "./tsconfig.json",
+    ecmaVersion: "latest",
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  plugins: [
+    "react-hooks",
+    "@typescript-eslint",
+    "import",
+    "react",
+    "simple-import-sort",
+    "filenames",
+    "jsdoc",
+    "jsx-a11y",
+    "new-with-error",
+    "optimize-regex",
+    "prettier",
+    "promise",
+    "sonarjs",
+    "sort-destructure-keys",
+    "typescript-sort-keys",
+    "clean-regex",
+    // 'prefer-object-spread',
+
+    // tests
+    "testing-library",
+    "jest",
+  ],
+  rules: {},
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+};
