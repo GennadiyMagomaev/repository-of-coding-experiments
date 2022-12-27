@@ -1,10 +1,8 @@
 variables:
   NODEJS_BASE_IMAGE_TAG: "14.9.0"
-  CI_PROJECT_NAME: "App"
 
 stages:
   - build
-  - deploy
 
 
 
@@ -15,20 +13,3 @@ build_app:
     - npm install
     - npm run build
 
-deploy:
-  stage: deploy
-  image: node:${NODEJS_BASE_IMAGE_TAG}
-  script:
-    - npm install
-    - npm run build
-  environment:
-    name: 'name'
-    url: http://${CI_PROJECT_NAME}
-  artifacts:
-    paths:
-      # The folder that contains the files to be exposed at the Page URL
-      - public
-  rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
