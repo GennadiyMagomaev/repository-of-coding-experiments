@@ -15,6 +15,11 @@ build_app:
     - npm run build
 
 deploy:
+  stage: deploy
+  image: node:${NODEJS_BASE_IMAGE_TAG}
+  script:
+    - npm install
+    - npm run build
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
