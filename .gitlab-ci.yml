@@ -15,7 +15,6 @@ build_app:
     - npm run build
 
 deploy:
-  stage: deploy
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
