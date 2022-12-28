@@ -3,6 +3,7 @@ name: application workflow
 
 on:
   workflow_dispatch:
+  push:
   pull_request:
     types:
       - opened
