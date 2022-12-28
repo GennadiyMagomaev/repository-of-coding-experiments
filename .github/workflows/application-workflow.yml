@@ -20,6 +20,7 @@ env:
 jobs:
   lint:
     runs-on: macos-12
+
     steps:
       - name: Get application code
         uses: actions/checkout@v3
@@ -40,6 +41,7 @@ jobs:
   test:
     needs: lint
     runs-on: macos-12
+
     steps:
       - name: Get application code
         uses: actions/checkout@v3
@@ -57,10 +59,10 @@ jobs:
       - name: Run tests
         run: npm run test
 
-  deployment:
+  build:
     needs: test
     runs-on: macos-12
-    environment: production
+
     steps:
       - name: Get application code
         uses: actions/checkout@v3
@@ -78,4 +80,28 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
             path: build
-            name: build-filed
+            name: build-files
+
+  deploy:
+    needs: build
+    runs-on: macos-12
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Get build application
+        uses: actions/download-artifact@v3
+        with:
+          name: build-files
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
