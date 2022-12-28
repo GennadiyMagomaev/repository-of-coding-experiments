@@ -4,12 +4,13 @@ env:
   NODEJS-VERSION: '14.9.0'
   OS: macos-12
 
-
 on:
   pull_request:
     types:
       - opened
       - edited
+      - push
+
     branches:
       - main
       - 'feature/**'
