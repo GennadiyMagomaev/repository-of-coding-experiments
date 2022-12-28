@@ -3,7 +3,13 @@ name: application workflow
 
 on:
   workflow_dispatch:
+    branches:
+      - main
+      - 'feature/**'
   push:
+    branches:
+      - main
+      - 'feature/**'
   pull_request:
     types:
       - opened
