@@ -15,7 +15,7 @@ on:
 
 env:
   NODEJS-VERSION: '14.9.0'
-  OS: macos-12
+  OS: "macos-12"
 
 jobs:
   lint:
