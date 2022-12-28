@@ -15,7 +15,6 @@ on:
 
 env:
   NODEJS_VERSION: '14.9.0'
-  NODEJS_PATH: ~/.npm
 
 jobs:
 #  lint:
