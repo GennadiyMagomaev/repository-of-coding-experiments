@@ -15,11 +15,10 @@ on:
 
 env:
   NODEJS_VERSION: '14.9.0'
-  OS: macos-12
 
 jobs:
   lint:
-    runs-on: "${{ env.OS }}"
+    runs-on: macos-12
     steps:
       - name: Get application code
         uses: actions/checkout@v3
@@ -37,7 +36,7 @@ jobs:
 
   test:
     needs: lint
-    runs-on: "${{ env.OS }}"
+    runs-on: macos-12
     steps:
       - name: Get application code
         uses: actions/checkout@v3
