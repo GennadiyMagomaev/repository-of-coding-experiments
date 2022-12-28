@@ -16,7 +16,6 @@ on:
 env:
   NODEJS_VERSION: '14.9.0'
   NODEJS_PATH: ~/.npm
-  NODEJS_KEY: node-modules-${{ hashFiles('**/package-lock.json') }}
 
 jobs:
   lint:
@@ -31,7 +30,7 @@ jobs:
         with:
           node-version: ${{ env.NODEJS_VERSION }}
           path: ${{ env.NODEJS_PATH }}
-          key:  ${{ env.NODEJS_KEY }}
+          key:  node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm ci
       - run: npm run lint
@@ -49,7 +48,7 @@ jobs:
         with:
           node-version: ${{ env.NODEJS_VERSION }}
           path: ${{ env.NODEJS_PATH }}
-          key: ${{ env.NODEJS_KEY }}
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm ci
       - run: npm run test
