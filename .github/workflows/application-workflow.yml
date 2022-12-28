@@ -2,11 +2,11 @@ name: application workflow
 
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - opened
       - edited
-      - workflow_dispatch
 
     branches:
       - main
