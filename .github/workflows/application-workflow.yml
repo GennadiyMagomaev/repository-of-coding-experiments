@@ -14,8 +14,8 @@ on:
       - 'feature/**'
 
 env:
-  NODEJS-VERSION: '14.9.0'
-  OS: "macos-12"
+  NODEJS_VERSION: '14.9.0'
+  OS: macos-12
 
 jobs:
   lint:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache@v3
 
         with:
-          node-version: "${{ env.NODEJS-VERSION }}"
+          node-version: "${{ env.NODEJS_VERSION }}"
           path: ~/.npm
           key:  node-modules-${{ hashFiles('**/package-lock.json') }}
 
@@ -46,7 +46,7 @@ jobs:
         uses: actions/cache@v3
 
         with:
-          node-version: "${{ env.NODEJS-VERSION }}"
+          node-version: "${{ env.NODEJS_VERSION }}"
           path: ~/.npm
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
 
