@@ -100,7 +100,7 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Download artifact
+      - name: Upload build application as artifact
         uses: actions/upload-artifact@v3
         with:
           path: build
@@ -108,7 +108,7 @@ jobs:
 
   deploy:
     needs: build
-    if: ${{ GITHUB_BASE_REF == 'main' && github.event_name == 'pull_request' && github.event.pull_request.merged }}
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged }}
     runs-on: macos-12
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
@@ -122,7 +122,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Get build application
+      - name: Download build application as artifact
         uses: actions/download-artifact@v3
         with:
           name: build-files
