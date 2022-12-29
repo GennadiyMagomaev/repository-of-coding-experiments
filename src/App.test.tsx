@@ -13,8 +13,7 @@ describe("Application testing", () => {
 
       root.render(<App />);
 
-      const app = screen.getByText(/app/i);
-      console.log("app", app);
+      const app = screen.getByText(/App deployed test/i);
 
       // eslint-disable-next-line jest/no-conditional-expect
       expect(app).toBeInTheDocument();
