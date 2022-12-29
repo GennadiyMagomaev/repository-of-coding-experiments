@@ -7,7 +7,7 @@ on:
 
 env:
   NODEJS_VERSION: '14.9.0'
-  NODEJS_PATH: '~/.npm'
+  NODEJS_PATH: ~/.npm
 
 jobs:
   lint:
@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Get application code
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Cache dependencies
         uses: actions/cache@v3
@@ -72,7 +74,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODEJS_VERSION }}
-          path: ${{ env.NODEJS_PATH }}
+          path: '${{ env.NODEJS_PATH }}'
           key:  node-modules-${{ hashFiles('**/package-lock.json') }}
           cache: 'npm'
 
