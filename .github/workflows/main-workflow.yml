@@ -1,9 +1,13 @@
 name: main workflow
 
 on:
+  push:
+    branches: 
+      - main
   pull_request:
-    types:
-      - merged
+    branches: 
+      - main
+    types: [merged]
 
 env:
   NODEJS_VERSION: '14.9.0'
@@ -12,8 +16,6 @@ env:
 jobs:
   lint:
     runs-on: macos-12
-    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged }}
-
     steps:
       - name: Get application code
         uses: actions/checkout@v3
