@@ -17,7 +17,7 @@ jobs:
       - name: Get application code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.MY_TOKEN || github.token }}
+          token: ${{ github.token }}
 
       - name: Cache dependencies
         uses: actions/cache@v3
