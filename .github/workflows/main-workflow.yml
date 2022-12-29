@@ -125,11 +125,10 @@ jobs:
       - name: Get build application
         uses: actions/download-artifact@v3
         with:
-          token: ${{ github.token }}
           name: build-files
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ github.token }}
+          deploy_key:: ${{ github.token }}
           publish_dir: ./public
