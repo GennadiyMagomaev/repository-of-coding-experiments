@@ -102,8 +102,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-files
+          path: public
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: public
