@@ -108,7 +108,7 @@ jobs:
 
   deploy:
     needs: build
-    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged }}
+#     if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged }}
     runs-on: macos-12
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
