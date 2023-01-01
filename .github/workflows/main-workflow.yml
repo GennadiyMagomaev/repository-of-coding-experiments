@@ -87,7 +87,7 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Download artifact
+      - name: Upload build application
         uses: actions/upload-artifact@v3
         with:
           path: build
