@@ -87,7 +87,7 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Upload build application
+      - name: Upload builded application
         uses: actions/upload-artifact@v3
         with:
           path: build
@@ -98,7 +98,7 @@ jobs:
     runs-on: macos-12
 
     steps:
-      - name: Get build application
+      - name: Get builded application
         uses: actions/download-artifact@v3
         with:
           name: build-files
